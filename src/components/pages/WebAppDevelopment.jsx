@@ -1,0 +1,189 @@
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+
+import webdevImage from '../../assets/webdev.png';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+};
+
+const WebAppDevelopment = () => (
+  <>
+    <Helmet>
+      <title>Web Development Services | Innovimagine</title>
+      <meta name="description" content="Innovimagine offers custom web development services to help your business grow online. Modern, scalable, and secure web solutions." />
+      <meta name="keywords" content="web development, custom web applications, business growth, scalable websites, Innovimagine" />
+      <link rel="canonical" href="https://innovimagine.com/services/web-app-development" />
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Web Development",
+          "provider": {
+            "@type": "Organization",
+            "name": "Innovimagine"
+          },
+          "areaServed": "Worldwide",
+          "description": "Custom web development services for businesses."
+        }
+      `}</script>
+    </Helmet>
+    <motion.section
+      className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
+    >
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 md:gap-12 items-start">
+        {/* LEFT COLUMN: Image + Technologies + Benefits */}
+        <motion.div
+          className="w-full md:w-2/5 flex flex-col gap-8 items-start"
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <img
+            src={webdevImage}
+            alt="Web Development"
+            className="rounded-2xl max-w-full sm:max-w-[420px] w-full object-cover shadow-lg"
+          />
+
+          {/* Technologies */}
+          <div>
+            <h2 className="text-2xl font-semibold mt-4 mb-2 font-sans">Technologies We Use</h2>
+            <p className="text-gray-700 font-sans">
+              React, Node.js, Express, MongoDB, PostgreSQL, Next.js, Tailwind CSS, and more.
+            </p>
+          </div>
+
+          {/* Benefits */}
+          <div>
+            <h2 className="text-2xl font-semibold mt-4 mb-2 font-sans">Benefits</h2>
+            <ul className="list-disc list-inside text-gray-700 font-sans">
+              <li>Scalable and future-proof solutions</li>
+              <li>Enhanced user engagement</li>
+              <li>Improved business efficiency</li>
+              <li>Competitive advantage</li>
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* RIGHT COLUMN: Main Content */}
+        <motion.div
+          className="w-full md:w-3/5"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <motion.h1
+            className="text-4xl md:text-5xl font-semibold mb-6 text-black font-sans"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            Web Application Development
+          </motion.h1>
+
+          <motion.p
+            className="text-lg text-gray-700 mb-8 font-sans"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            transition={{ delay: 0.1 }}
+          >
+            We build custom, scalable web solutions that drive business growth and user engagement. Our team leverages the latest technologies to deliver robust, secure, and high-performing web applications tailored to your needs.
+          </motion.p>
+
+          {/* Features */}
+          <motion.h2
+            className="text-2xl font-semibold mt-8 mb-4 font-sans"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            Key Features
+          </motion.h2>
+
+          <motion.ul
+            className="list-disc list-inside text-gray-700 mb-6 font-sans"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <li>Custom UI/UX design</li>
+            <li>Responsive and mobile-friendly</li>
+            <li>API integration</li>
+            <li>Performance optimization</li>
+            <li>Security best practices</li>
+            <li>SEO-friendly architecture</li>
+          </motion.ul>
+
+          {/* Process */}
+          <motion.h2
+            className="text-2xl font-semibold mt-8 mb-4 font-sans"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            Our Process
+          </motion.h2>
+
+          <motion.ol
+            className="list-decimal list-inside text-gray-700 mb-6 font-sans"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <li>Requirement Analysis & Planning</li>
+            <li>UI/UX Design</li>
+            <li>Development & Integration</li>
+            <li>Testing & QA</li>
+            <li>Deployment</li>
+            <li>Ongoing Support & Maintenance</li>
+          </motion.ol>
+        </motion.div>
+      </div>
+      {/* CTA centered for the whole page */}
+      <div className="w-full flex justify-center mt-8 sm:mt-12 md:mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <a
+            href="/contact"
+            className="inline-block bg-black text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-gray-800 transition font-sans shadow-lg group text-base sm:text-lg"
+          >
+            <span className="flex items-center gap-2">
+              Get Started with Web App Development
+              <svg 
+                className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0" 
+                fill="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </span>
+          </a>
+        </motion.div>
+      </div>
+    </motion.section>
+  </>
+);
+
+export default WebAppDevelopment;
+ 
