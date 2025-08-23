@@ -11,10 +11,10 @@ const fadeUp = {
 const AIToolApplications = () => (
   <>
     <Helmet>
-      <title>AI Tool Applications | Innovimagine</title>
-      <meta name="description" content="Innovimagine delivers innovative AI tool applications to automate business processes and unlock new opportunities. Custom AI solutions for your needs." />
-      <meta name="keywords" content="AI tools, AI solutions, business automation, machine learning, Innovimagine" />
-      <link rel="canonical" href="https://innovimagine.com/services/ai-tool-applications" />
+      <title>AI Tool Applications | Grahmind</title>
+      <meta name="description" content="Grahmind delivers innovative AI tool applications to automate business processes and unlock new opportunities. Custom AI solutions for your needs." />
+      <meta name="keywords" content="AI tools, AI solutions, business automation, machine learning, Grahmind" />
+      <link rel="canonical" href="https://grahmind.com/services/ai-tool-applications" />
       <script type="application/ld+json">{`
         {
           "@context": "https://schema.org",
@@ -22,7 +22,7 @@ const AIToolApplications = () => (
           "serviceType": "AI Tool Applications",
           "provider": {
             "@type": "Organization",
-            "name": "Innovimagine"
+            "name": "Grahmind"
           },
           "areaServed": "Worldwide",
           "description": "Custom AI tool development and automation solutions."

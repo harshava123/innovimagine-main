@@ -5,7 +5,7 @@ const AboutUs = () => (
     <div className="container mx-auto px-6 max-w-7xl">
       {/* Centered Heading */}
       <h2 className="text-4xl md:text-5xl font-sans text-gray-900 mb-12 text-center">
-        About <span className="text-gray-600">Innovimagine</span>
+        About <span className="text-gray-600">Grahmind</span>
       </h2>
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Vision GIF */}
@@ -24,7 +24,7 @@ const AboutUs = () => (
         {/* Right side - Simplified Content */}
         <div className="flex justify-center lg:justify-start">
           <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-md text-center lg:text-left">
-            Innovimagine empowers businesses to harness AI and digital innovation. Our mission is to deliver intelligent, ethical, and impactful solutions that drive growth and creativity. We value innovation, integrity, collaboration, and excellence in every partnership.
+            Grahmind empowers businesses to harness AI and digital innovation. Our mission is to deliver intelligent, ethical, and impactful solutions that drive growth and creativity. We value innovation, integrity, collaboration, and excellence in every partnership.
           </p>
         </div>
       </div>

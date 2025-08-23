@@ -6,7 +6,7 @@ const Byd = () => {
   return (
     <section className="relative sm:min-h-[80vh] flex flex-col items-center justify-center bg-gray-100 overflow-hidden py-12 sm:py-20">
       <div className=" sm:text-1xl md:text-3xl text-gray-500 max-w-3xl text-center mb-8 sm:mb-12 font-sans leading-relaxed px-2">
-        <p>At Innovimagine, we turn <span className="text-black font-sans">data</span> into direction.</p>
+        <p>At Grahmind, we turn <span className="text-black font-sans">data</span> into direction.</p>
         <p>We decode your audience, power it with <span className="text-black font-sans">AI</span>, and craft strategies that cut through the clutter.</p>
         <p>We don't just plan — we <span className="text-black font-sans">build</span>, launch, and deliver.</p>
       </div>

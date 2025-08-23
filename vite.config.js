@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Innovimagine',
-        short_name: 'Innovimagine',
+        name: 'Grahmind',
+        short_name: 'Grahmind',
         description: 'Premium modern web solutions',
         theme_color: '#111827',
         background_color: '#111827',

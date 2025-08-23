@@ -86,37 +86,37 @@ const technologies = [
 const comparisonData = [
   {
     feature: 'Team Experience',
-    innovimagine: 'Team with 3+ years experience',
+    Grahmind: 'Team with 3+ years experience',
     others: 'Generic teams, unknown background',
     advantage: 'Personal connection, shared vision'
   },
   {
     feature: 'Ethical Approach',
-    innovimagine: 'Ethics-first development',
+    Grahmind: 'Ethics-first development',
     others: 'Profit-driven, questionable practices',
     advantage: 'Trustworthy, sustainable solutions'
   },
   {
     feature: 'Innovation Focus',
-    innovimagine: 'AI-powered, cutting-edge solutions',
+    Grahmind: 'AI-powered, cutting-edge solutions',
     others: 'Traditional, outdated methods',
     advantage: 'Future-ready technology'
   },
   {
     feature: 'Client Relationship',
-    innovimagine: 'Direct founder communication',
+    Grahmind: 'Direct founder communication',
     others: 'Multiple layers, delayed responses',
     advantage: 'Faster decision-making, personal touch'
   },
   {
     feature: 'Pricing',
-    innovimagine: 'Startup-friendly, transparent pricing',
+    Grahmind: 'Startup-friendly, transparent pricing',
     others: 'Hidden costs, enterprise pricing',
     advantage: 'Better value for money'
   },
   {
     feature: 'Support',
-    innovimagine: '24/7 direct support',
+    Grahmind: '24/7 direct support',
     others: 'Limited hours, ticket system',
     advantage: 'Immediate assistance when needed'
   }
@@ -154,7 +154,7 @@ const Features = () => {
   return (
     <section className="bg-gray-100 py-12 sm:py-24">
       <div className="max-w-6xl mx-auto px-2 sm:px-6">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans text-center text-gray-900 mb-4">Why Choose Innovimagine</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans text-center text-gray-900 mb-4">Why Choose Grahmind</h2>
         <p className="text-base sm:text-lg text-center text-gray-500 mb-8 sm:mb-14">
           We don't just analyze data — we turn it into direction that drives your business forward.
         </p>
@@ -219,8 +219,8 @@ const Features = () => {
                     <div className="lg:col-span-2">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div className="bg-gray-50 p-2 rounded">
-                          <h6 className="font-medium text-gray-900 text-xs">Innovimagine</h6>
-                          <p className="text-gray-700 text-xs mt-1">{item.innovimagine}</p>
+                          <h6 className="font-medium text-gray-900 text-xs">Grahmind</h6>
+                          <p className="text-gray-700 text-xs mt-1">{item.Grahmind}</p>
                         </div>
                         <div className="bg-gray-100 p-2 rounded">
                           <h6 className="font-medium text-gray-900 text-xs">Others</h6>

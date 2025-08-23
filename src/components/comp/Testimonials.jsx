@@ -2,21 +2,21 @@ import React, { useEffect, useRef } from 'react'
 
 const testimonials = [
   {
-    quote: "Innovimagine transformed our workflow with their AI solutions. Their team delivered exactly what we needed - intelligent automation that actually works.",
+    quote: "Grahmind transformed our workflow with their AI solutions. Their team delivered exactly what we needed - intelligent automation that actually works.",
     name: "Sampath",
     role: "Director at Taaza",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face&auto=format"
   },
   {
-    quote: "The AI tools Innovimagine built for us have increased our productivity by 40%. Their expertise in machine learning is unmatched.",
+    quote: "The AI tools Grahmind built for us have increased our productivity by 40%. Their expertise in machine learning is unmatched.",
     name: "Ajay",
     role: "Founder at DesignStudios",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face&auto=format"
   },
   {
-    quote: "Innovimagine's web development and AI integration services exceeded our expectations. They truly understand modern business needs.",
+    quote: "Grahmind's web development and AI integration services exceeded our expectations. They truly understand modern business needs.",
     name: "Mahesh",
     role: "Founder at ProgMarketing",
     rating: 5,
@@ -140,7 +140,7 @@ const Testimonials = () => {
             <span className="text-sm font-medium text-gray-600 uppercase tracking-wide">TESTIMONIALS</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Discover how Innovimagine is transforming businesses with AI-powered solutions.</p>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Discover how Grahmind is transforming businesses with AI-powered solutions.</p>
         </div>
 
         {/* Social Proof Badges */}
@@ -166,7 +166,7 @@ const Testimonials = () => {
           <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-lg">
             <div className="mb-6">
               <p className="text-lg lg:text-xl text-gray-800 leading-relaxed">
-                Innovimagine's <span className="text-gray-400">AI-driven approach</span> revolutionized our business processes. Their expertise in <span className="text-gray-400">machine learning</span> and <span className="text-gray-400">web development</span> helped us achieve results we never thought possible.
+                Grahmind's <span className="text-gray-400">AI-driven approach</span> revolutionized our business processes. Their expertise in <span className="text-gray-400">machine learning</span> and <span className="text-gray-400">web development</span> helped us achieve results we never thought possible.
               </p>
             </div>
             <div className="text-4xl text-gray-300 mb-4">"</div>
@@ -176,7 +176,7 @@ const Testimonials = () => {
             <div className="h-64">
               <img 
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop&auto=format" 
-                alt="Innovimagine client success"
+                alt="Grahmind client success"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />

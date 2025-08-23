@@ -17,7 +17,7 @@ const About = () => {
           initial="hidden"
           animate="visible"
         >
-              About Innovimagine
+              About Grahmind
         </motion.h1>
         <motion.p
           className="text-lg text-center text-gray-600 mb-10"
@@ -43,7 +43,7 @@ const About = () => {
               What started as four friends sharing dreams during our B.Tech days has evolved into something extraordinary. We bonded over late-night coding sessions, endless discussions about technology's potential, and a shared vision of creating software that makes a real difference.
             </p>
             <p>
-              After graduating, instead of taking the conventional path, we decided to chase our dreams together. We founded Innovimagine with a simple yet powerful mission: to deliver exceptional software solutions while maintaining the highest ethical standards.
+              After graduating, instead of taking the conventional path, we decided to chase our dreams together. We founded Grahmind with a simple yet powerful mission: to deliver exceptional software solutions while maintaining the highest ethical standards.
             </p>
             <p>
               Today, we're proud to be a growing startup that combines technical excellence with human-centered design, always remembering where we started and the values that brought us together.
@@ -62,7 +62,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold mb-4 text-gray-900">Our Mission</h2>
           <div className="text-gray-700 space-y-4">
             <p>
-              At Innovimagine, we believe that great software should not only solve problems but also respect users, protect privacy, and contribute positively to society. Our mission is to:
+              At Grahmind, we believe that great software should not only solve problems but also respect users, protect privacy, and contribute positively to society. Our mission is to:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Deliver innovative software solutions that exceed expectations</li>

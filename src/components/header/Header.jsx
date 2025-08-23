@@ -30,7 +30,7 @@ function Header() {
             to="/"
             className="text-2xl font-sans text-gray-900 tracking-tight"
           >
-            Innovimagine
+            Grahmind
           </Link>
 
           {/* Centered Navigation + Get Started Button */}

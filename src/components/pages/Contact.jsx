@@ -153,10 +153,10 @@ function Contact() {
                 </ul>
               </div>
               <a 
-                href="mailto:innovimagine@gmail.com" 
+                href="mailto:grahmindinnovations@gmail.com" 
                 className="text-black font-medium hover:underline"
               >
-                innovimagine@gmail.com
+               grahmindinnovations@gmail.com
               </a>
             </motion.div>
 

@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 
 const faqData = [
   {
-    question: 'What services does Innovimagine offer?',
-    answer: "Innovimagine provides AI-powered digital solutions, including web and mobile app development, automation, data analytics, and custom AI integrations for businesses."
+    question: 'What services does Grahmind offer?',
+    answer: "Grahmind provides AI-powered digital solutions, including web and mobile app development, automation, data analytics, and custom AI integrations for businesses."
   },
   {
     question: 'How can AI benefit my business?',
     answer: "AI can automate repetitive tasks, provide data-driven insights, enhance customer experiences, and help your business innovate faster and more efficiently."
   },
   {
-    question: 'Is Innovimagine suitable for startups and enterprises?',
+    question: 'Is Grahmind suitable for startups and enterprises?',
     answer: "Yes, we work with both startups and large enterprises, tailoring our solutions to fit your unique needs and scale as you grow."
   },
   {

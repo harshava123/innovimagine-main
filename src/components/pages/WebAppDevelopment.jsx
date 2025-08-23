@@ -16,10 +16,10 @@ const fadeUp = {
 const WebAppDevelopment = () => (
   <>
     <Helmet>
-      <title>Web Development Services | Innovimagine</title>
-      <meta name="description" content="Innovimagine offers custom web development services to help your business grow online. Modern, scalable, and secure web solutions." />
-      <meta name="keywords" content="web development, custom web applications, business growth, scalable websites, Innovimagine" />
-      <link rel="canonical" href="https://innovimagine.com/services/web-app-development" />
+      <title>Web Development Services | Grahmind</title>
+      <meta name="description" content="Grahmind offers custom web development services to help your business grow online. Modern, scalable, and secure web solutions." />
+      <meta name="keywords" content="web development, custom web applications, business growth, scalable websites, Grahmind" />
+      <link rel="canonical" href="https://grahmind.com/services/web-app-development" />
       <script type="application/ld+json">{`
         {
           "@context": "https://schema.org",
@@ -27,7 +27,7 @@ const WebAppDevelopment = () => (
           "serviceType": "Web Development",
           "provider": {
             "@type": "Organization",
-            "name": "Innovimagine"
+            "name": "Grahmind"
           },
           "areaServed": "Worldwide",
           "description": "Custom web development services for businesses."

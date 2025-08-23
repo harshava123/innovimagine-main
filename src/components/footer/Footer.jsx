@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Logo, Description, Socials */}
           <div className="lg:col-span-2">
             <div className="mb-2 sm:mb-4">
-              <span className="block text-base sm:text-lg font-bold tracking-widest mb-1 sm:mb-2">INNOVIMAGINE</span>
+              <span className="block text-base sm:text-lg font-bold tracking-widest mb-1 sm:mb-2">Grahmind</span>
             </div>
             <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">Transforming digital landscapes with innovative technology solutions and cutting-edge design.</p>
             <div className="flex space-x-4 text-2xl text-gray-700">
@@ -43,7 +43,7 @@ const Footer = () => {
                 <FaLinkedin />
               </a>
               <a
-                href="https://www.instagram.com/accounts/login/?next=%2Finnovimagine%2F&source=omni_redirect"
+                href="https://www.instagram.com/accounts/login/?next=%grahmind%2F&source=omni_redirect"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -302,10 +302,10 @@ const Footer = () => {
                   <HiOutlineMail className="text-lg" />
                 </span>
                 <a 
-                  href="mailto:innovimagine@gmail.com" 
+                  href="mailto:grahmindinnovations@gmail.com" 
                   className="relative inline-block group transition-all duration-300 hover:text-black hover:font-medium"
                 >
-                  innovimagine@gmail.com
+                  grahmindinnovations@gmail.com
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
@@ -369,7 +369,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-gray-100 py-4 sm:py-6 text-center text-gray-400 text-xs sm:text-sm">
-        © {new Date().getFullYear()} InnovImagine. All rights reserved.
+        © {new Date().getFullYear()} Grahmind. All rights reserved.
       </div>
     </footer>
   )
