@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import SEO from '../seo/SEO';
 import { motion } from 'framer-motion';
 import aiImage from '../../assets/ai-7977960.jpg';
 
@@ -10,25 +10,17 @@ const fadeUp = {
 
 const AIToolApplications = () => (
   <>
-    <Helmet>
-      <title>AI Tool Applications | Grahmind</title>
-      <meta name="description" content="Grahmind delivers innovative AI tool applications to automate business processes and unlock new opportunities. Custom AI solutions for your needs." />
-      <meta name="keywords" content="AI tools, AI solutions, business automation, machine learning, Grahmind" />
-      <link rel="canonical" href="https://grahmind.com/services/ai-tool-applications" />
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "serviceType": "AI Tool Applications",
-          "provider": {
-            "@type": "Organization",
-            "name": "Grahmind"
-          },
-          "areaServed": "Worldwide",
-          "description": "Custom AI tool development and automation solutions."
-        }
-      `}</script>
-    </Helmet>
+    <SEO 
+      title="AI Tool Applications Development | Grahmind"
+      description="Grahmind develops cutting-edge AI tool applications and machine learning solutions. Transform your business with intelligent automation and data insights."
+      keywords="Grahmind, AI development, artificial intelligence, machine learning, AI tools, intelligent automation, data insights, AI applications, Python, TensorFlow, PyTorch, OpenAI"
+      canonical="https://grahmind.com/services/ai-tool-applications"
+      pageType="service"
+      serviceName="AI Tool Applications"
+      serviceDescription="Cutting-edge AI tool applications and machine learning solutions. Transform your business with intelligent automation and data insights."
+      serviceCategory="Artificial Intelligence"
+      serviceArea="Worldwide"
+    />
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import SEO from '../seo/SEO';
 import { motion } from 'framer-motion';
 
 import webdevImage from '../../assets/webdev.png';
@@ -15,25 +15,17 @@ const fadeUp = {
 
 const WebAppDevelopment = () => (
   <>
-    <Helmet>
-      <title>Web Development Services | Grahmind</title>
-      <meta name="description" content="Grahmind offers custom web development services to help your business grow online. Modern, scalable, and secure web solutions." />
-      <meta name="keywords" content="web development, custom web applications, business growth, scalable websites, Grahmind" />
-      <link rel="canonical" href="https://grahmind.com/services/web-app-development" />
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "serviceType": "Web Development",
-          "provider": {
-            "@type": "Organization",
-            "name": "Grahmind"
-          },
-          "areaServed": "Worldwide",
-          "description": "Custom web development services for businesses."
-        }
-      `}</script>
-    </Helmet>
+    <SEO 
+      title="Web Application Development Services | Grahmind"
+      description="Grahmind offers custom web application development services including React, Node.js, and modern web technologies. Build scalable, secure web solutions for your business growth."
+      keywords="web development, custom web applications, React development, Node.js development, web app development, business web solutions, scalable websites, modern web technologies, Grahmind"
+      canonical="https://grahmind.com/services/web-app-development"
+      pageType="service"
+      serviceName="Web Application Development"
+      serviceDescription="Custom web application development services using modern technologies like React, Node.js, and more. Build scalable, secure web solutions for your business."
+      serviceCategory="Web Development"
+      serviceArea="Worldwide"
+    />
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}
