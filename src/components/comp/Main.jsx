@@ -47,7 +47,7 @@ const Main = () => {
       )}
 
       <div className="absolute bottom-6 right-6 sm:bottom-2 sm:right-2 md:bottom-4 md:right-4 bg-black rounded-lg px-4 py-2 sm:px-3 sm:py-1 md:px-6 md:py-2 shadow-lg z-10 max-w-[90vw] w-auto">
-        <p className="text-base sm:text-xs md:text-sm text-white font-semibold truncate text-right">Grahmind</p>
+        <p className="text-base sm:text-xs md:text-sm text-white font-semibold truncate text-right">--Grahmind--</p>
       </div>
     </div>
   );
