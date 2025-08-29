@@ -118,11 +118,11 @@ const SEO = ({
       });
     });
 
-          return {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": breadcrumbItems
-      };
+    return {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbItems
+    };
     } catch (error) {
       console.warn('Error generating breadcrumb data:', error);
       return null;
