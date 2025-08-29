@@ -61,14 +61,7 @@ const Main = () => {
         />
       </div>
 
-      {/* Enhanced signature */}
-      <div className="absolute bottom-6 right-6 sm:bottom-2 sm:right-2 md:bottom-4 md:right-4 z-20">
-        <div className="bg-gradient-to-r from-black via-gray-800 to-black rounded-2xl px-6 py-3 sm:px-4 sm:py-2 md:px-8 md:py-3 shadow-2xl backdrop-blur-sm border border-gray-600/30">
-          <p className="text-base sm:text-xs md:text-sm text-white font-bold truncate text-right bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            --Grahmind--
-          </p>
-        </div>
-      </div>
+
 
       {/* Dynamic Scroll Arrow - Bottom Right */}
       <div 
