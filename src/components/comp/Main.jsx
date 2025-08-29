@@ -44,19 +44,21 @@ const Main = () => {
   };
 
   return (
-    <div className="relative w-screen h-screen bg-black flex items-center justify-center overflow-hidden m-0 p-0">
+    <div className="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden m-0 p-0">
       {/* Logo container - Full screen */}
-      <div className="relative w-screen h-screen z-10 m-0 p-0">
+      <div className="relative w-full h-full z-10 m-0 p-0">
         {/* Grahmind logo - Full screen coverage */}
         <img 
           src={grahmindImage} 
           alt="GRAHMIND - The Ultimate Tech Solutions" 
-          className="w-screen h-screen object-cover m-0 p-0"
+          className="w-full h-full object-cover m-0 p-0 sm:w-screen sm:h-screen"
           style={{
             filter: 'brightness(1.1) contrast(1.1) saturate(1.2)',
             objectPosition: 'center center',
-            minWidth: '100vw',
-            minHeight: '100vh'
+            minWidth: '100%',
+            minHeight: '100%',
+            maxWidth: '100vw',
+            maxHeight: '100vh'
           }}
         />
       </div>
