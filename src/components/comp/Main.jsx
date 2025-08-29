@@ -1,53 +1,88 @@
-import React, { Suspense, useState } from 'react';
-import Spline from '@splinetool/react-spline';
-import { useInView } from 'react-intersection-observer';
+import React, { useState, useEffect } from 'react';
+import grahmindImage from '../../assets/grahmind.png';
 
 const Main = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const { ref, inView } = useInView({ threshold: 0.1 });
+  const [scrollDirection, setScrollDirection] = useState('down');
+  const [showArrow, setShowArrow] = useState(false);
 
-  const onLoad = () => {
-    setIsLoading(false);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Show arrow after scrolling a bit
+      setShowArrow(scrollY > 50);
+      
+      // Determine scroll direction
+      if (scrollY < 100) {
+        setScrollDirection('down');
+      } else if (scrollY > documentHeight - windowHeight - 100) {
+        setScrollDirection('up');
+      } else {
+        // In middle - show direction based on recent scroll
+        setScrollDirection(scrollY > (documentHeight - windowHeight) / 2 ? 'up' : 'down');
+      }
+    };
 
-  const onError = (e) => {
-    console.error("Spline scene failed to load:", e);
-    setError(true);
-    setIsLoading(false);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToDirection = () => {
+    if (scrollDirection === 'down') {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <div ref={ref} className="relative w-full h-[40vh] sm:h-[55vh] md:h-[70vh] lg:h-screen bg-gray-900">
-      {isLoading && inView && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-7 w-7 sm:h-10 sm:w-10 md:h-14 md:w-14 border-t-2 border-b-2 border-white"></div>
-        </div>
-      )}
-      
-      {inView && (
-        <Suspense fallback={null}>
-          <div className="w-full h-full">
-          <Spline 
-            scene="https://prod.spline.design/wc5lafivorXQYX7K/scene.splinecode" 
-            onLoad={onLoad}
-            onError={onError}
-              style={{ width: '100%', height: '100%' }}
-          />
-          </div>
-        </Suspense>
-      )}
+    <div className="relative w-screen h-screen bg-black flex items-center justify-center overflow-hidden m-0 p-0">
+      {/* Logo container - Full screen */}
+      <div className="relative w-screen h-screen z-10 m-0 p-0">
+        {/* Grahmind logo - Full screen coverage */}
+        <img 
+          src={grahmindImage} 
+          alt="GRAHMIND - The Ultimate Tech Solutions" 
+          className="w-screen h-screen object-cover m-0 p-0"
+          style={{
+            filter: 'brightness(1.1) contrast(1.1) saturate(1.2)',
+            objectPosition: 'center center',
+            minWidth: '100vw',
+            minHeight: '100vh'
+          }}
+        />
+      </div>
 
-      {error && inView && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-red-500 text-white px-2 py-1 sm:px-3 sm:py-2 md:px-6 md:py-3 rounded-lg shadow-lg text-[10px] sm:text-xs md:text-base">
-            Failed to load 3D scene. Please refresh the page.
-          </div>
+      {/* Enhanced signature */}
+      <div className="absolute bottom-6 right-6 sm:bottom-2 sm:right-2 md:bottom-4 md:right-4 z-20">
+        <div className="bg-gradient-to-r from-black via-gray-800 to-black rounded-2xl px-6 py-3 sm:px-4 sm:py-2 md:px-8 md:py-3 shadow-2xl backdrop-blur-sm border border-gray-600/30">
+          <p className="text-base sm:text-xs md:text-sm text-white font-bold truncate text-right bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            --Grahmind--
+          </p>
         </div>
-      )}
+      </div>
 
-      <div className="absolute bottom-6 right-6 sm:bottom-2 sm:right-2 md:bottom-4 md:right-4 bg-black rounded-lg px-4 py-2 sm:px-3 sm:py-1 md:px-6 md:py-2 shadow-lg z-10 max-w-[90vw] w-auto">
-        <p className="text-base sm:text-xs md:text-sm text-white font-semibold truncate text-right">--Grahmind--</p>
+      {/* Dynamic Scroll Arrow - Bottom Right */}
+      <div 
+        className={`scroll-pointer ${showArrow ? 'visible' : ''}`}
+        style={{ 
+          top: '85%',
+          background: '#000000',
+          border: '2px solid #ffffff',
+          color: '#ffffff'
+        }}
+        onClick={scrollToDirection}
+        title={scrollDirection === 'down' ? 'Scroll to Bottom' : 'Scroll to Top'}
+      >
+        {scrollDirection === 'down' ? '↓' : '↑'}
       </div>
     </div>
   );

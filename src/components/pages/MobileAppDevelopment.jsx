@@ -8,19 +8,21 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const MobileAppDevelopment = () => (
+const MobileAppDevelopment = ({ isSubComponent = false }) => (
   <>
-    <SEO 
-      title="Mobile App Development Services | Grahmind"
-      description="Grahmind specializes in mobile app development for iOS and Android platforms. Create engaging, high-performance mobile applications that drive business growth."
-      keywords="Grahmind, mobile app development, iOS development, Android development, mobile applications, app development company, cross-platform development, React Native, Flutter, Swift, Kotlin"
-      canonical="https://grahmind.com/services/mobile-app-development"
-      pageType="service"
-      serviceName="Mobile App Development"
-      serviceDescription="Professional mobile app development services for iOS and Android platforms. Create engaging, high-performance mobile applications that drive business growth."
-      serviceCategory="Mobile Development"
-      serviceArea="Worldwide"
-    />
+    {!isSubComponent && (
+      <SEO 
+        title="Mobile App Development Services | Grahmind"
+        description="Grahmind specializes in mobile app development for iOS and Android platforms. Create engaging, high-performance mobile applications that drive business growth."
+        keywords="Grahmind, mobile app development, iOS development, Android development, mobile applications, app development company, cross-platform development, React Native, Flutter, Swift, Kotlin"
+        canonical="https://grahmind.com/services/mobile-app-development"
+        pageType="service"
+        serviceName="Mobile App Development"
+        serviceDescription="Professional mobile app development services for iOS and Android platforms. Create engaging, high-performance mobile applications that drive business growth."
+        serviceCategory="Mobile Development"
+        serviceArea="Worldwide"
+      />
+    )}
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}

@@ -8,19 +8,21 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const DigitalMarketing = () => (
+const DigitalMarketing = ({ isSubComponent = false }) => (
   <>
-    <SEO 
-      title="Digital Marketing Services | Grahmind"
-      description="Grahmind offers comprehensive digital marketing solutions. SEO, social media, content marketing, and PPC campaigns that drive results."
-      keywords="Grahmind, digital marketing, SEO services, social media marketing, content marketing, PPC campaigns, online advertising, marketing agency, Google Analytics, SEMrush"
-      canonical="https://grahmind.com/services/digital-marketing"
-      pageType="service"
-      serviceName="Digital Marketing"
-      serviceDescription="Comprehensive digital marketing solutions including SEO, social media, content marketing, and PPC campaigns that drive results."
-      serviceCategory="Digital Marketing"
-      serviceArea="Worldwide"
-    />
+    {!isSubComponent && (
+      <SEO 
+        title="Digital Marketing Services | Grahmind"
+        description="Grahmind offers comprehensive digital marketing solutions. SEO, social media, content marketing, and PPC campaigns that drive results."
+        keywords="Grahmind, digital marketing, SEO services, social media marketing, content marketing, PPC campaigns, online advertising, marketing agency, Google Analytics, SEMrush"
+        canonical="https://grahmind.com/services/digital-marketing"
+        pageType="service"
+        serviceName="Digital Marketing"
+        serviceDescription="Comprehensive digital marketing solutions including SEO, social media, content marketing, and PPC campaigns that drive results."
+        serviceCategory="Digital Marketing"
+        serviceArea="Worldwide"
+      />
+    )}
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}

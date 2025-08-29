@@ -135,7 +135,7 @@ function Services() {
       </div>
       {/* Tab Content */}
       <div className="w-full max-w-full mx-auto px-0 sm:px-2 md:px-0 min-w-0 box-border">
-        <SelectedComponent />
+        <SelectedComponent isSubComponent={true} />
       </div>
     </div>
   );

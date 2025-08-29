@@ -8,19 +8,21 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const FullStackDevelopment = () => (
+const FullStackDevelopment = ({ isSubComponent = false }) => (
   <>
-    <SEO 
-      title="Full Stack Development Services | Grahmind"
-      description="Grahmind provides comprehensive full stack development services. End-to-end solutions from frontend to backend, database design to deployment."
-      keywords="Grahmind, full stack development, full stack developer, end-to-end development, frontend backend development, complete web solutions, React, Node.js, MongoDB, PostgreSQL, AWS"
-      canonical="https://grahmind.com/services/full-stack-development"
-      pageType="service"
-      serviceName="Full Stack Development"
-      serviceDescription="Comprehensive full stack development services covering frontend, backend, database, and deployment. Complete end-to-end solutions for modern web applications."
-      serviceCategory="Full Stack Development"
-      serviceArea="Worldwide"
-    />
+    {!isSubComponent && (
+      <SEO 
+        title="Full Stack Development Services | Grahmind"
+        description="Grahmind provides comprehensive full stack development services. End-to-end solutions from frontend to backend, database design to deployment."
+        keywords="Grahmind, full stack development, full stack developer, end-to-end development, frontend backend development, complete web solutions, React, Node.js, MongoDB, PostgreSQL, AWS"
+        canonical="https://grahmind.com/services/full-stack-development"
+        pageType="service"
+        serviceName="Full Stack Development"
+        serviceDescription="Comprehensive full stack development services covering frontend, backend, database, and deployment. Complete end-to-end solutions for modern web applications."
+        serviceCategory="Full Stack Development"
+        serviceArea="Worldwide"
+      />
+    )}
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}

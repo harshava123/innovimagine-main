@@ -8,19 +8,21 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const SoftwareSupport = () => (
+const SoftwareSupport = ({ isSubComponent = false }) => (
   <>
-    <SEO 
-      title="Software Support Services | Grahmind"
-      description="Grahmind provides reliable software support and maintenance services. Keep your applications running smoothly with our expert technical support team."
-      keywords="Grahmind, software support, technical support, software maintenance, IT support, application support, system maintenance, help desk, bug fixing, troubleshooting"
-      canonical="https://grahmind.com/services/software-support"
-      pageType="service"
-      serviceName="Software Support"
-      serviceDescription="Reliable software support and maintenance services. Keep your applications running smoothly with our expert technical support team."
-      serviceCategory="Support Services"
-      serviceArea="Worldwide"
-    />
+    {!isSubComponent && (
+      <SEO 
+        title="Software Support Services | Grahmind"
+        description="Grahmind provides reliable software support and maintenance services. Keep your applications running smoothly with our expert technical support team."
+        keywords="Grahmind, software support, technical support, software maintenance, IT support, application support, system maintenance, help desk, bug fixing, troubleshooting"
+        canonical="https://grahmind.com/services/software-support"
+        pageType="service"
+        serviceName="Software Support"
+        serviceDescription="Reliable software support and maintenance services. Keep your applications running smoothly with our expert technical support team."
+        serviceCategory="Support Services"
+        serviceArea="Worldwide"
+      />
+    )}
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}

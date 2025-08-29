@@ -1,5 +1,5 @@
 {
-  "name": "innov",
+  "name": "grahmind",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +14,7 @@
     "@splinetool/runtime": "^1.10.51",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.19.2",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

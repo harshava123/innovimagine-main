@@ -13,19 +13,21 @@ const fadeUp = {
   },
 };
 
-const WebAppDevelopment = () => (
+const WebAppDevelopment = ({ isSubComponent = false }) => (
   <>
-    <SEO 
-      title="Web Application Development Services | Grahmind"
-      description="Grahmind offers custom web application development services including React, Node.js, and modern web technologies. Build scalable, secure web solutions for your business growth."
-      keywords="web development, custom web applications, React development, Node.js development, web app development, business web solutions, scalable websites, modern web technologies, Grahmind"
-      canonical="https://grahmind.com/services/web-app-development"
-      pageType="service"
-      serviceName="Web Application Development"
-      serviceDescription="Custom web application development services using modern technologies like React, Node.js, and more. Build scalable, secure web solutions for your business."
-      serviceCategory="Web Development"
-      serviceArea="Worldwide"
-    />
+    {!isSubComponent && (
+      <SEO 
+        title="Web Application Development Services | Grahmind"
+        description="Grahmind offers custom web application development services including React, Node.js, and modern web technologies. Build scalable, secure web solutions for your business growth."
+        keywords="web development, custom web applications, React development, Node.js development, web app development, business web solutions, scalable websites, modern web technologies, Grahmind"
+        canonical="https://grahmind.com/services/web-app-development"
+        pageType="service"
+        serviceName="Web Application Development"
+        serviceDescription="Custom web application development services using modern technologies like React, Node.js, and more. Build scalable, secure web solutions for your business."
+        serviceCategory="Web Development"
+        serviceArea="Worldwide"
+      />
+    )}
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}

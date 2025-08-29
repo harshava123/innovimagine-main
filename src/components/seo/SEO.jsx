@@ -25,7 +25,7 @@ const SEO = ({
   const finalTitle = title || defaultTitle;
   const finalDescription = description || defaultDescription;
   const finalKeywords = keywords || defaultKeywords;
-  const finalCanonical = canonical || window.location.href;
+  const finalCanonical = canonical || (typeof window !== 'undefined' ? window.location.href : 'https://grahmind.com');
   const finalOgImage = ogImage || 'https://grahmind.com/og-image.png';
 
   // Generate structured data based on page type
@@ -88,8 +88,11 @@ const SEO = ({
 
   // Generate breadcrumb structured data
   const generateBreadcrumbData = () => {
-    const pathSegments = window.location.pathname.split('/').filter(Boolean);
-    if (pathSegments.length === 0) return null;
+    if (typeof window === 'undefined') return null;
+    
+    try {
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      if (pathSegments.length === 0) return null;
 
     const breadcrumbItems = [
       {
@@ -115,11 +118,15 @@ const SEO = ({
       });
     });
 
-    return {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": breadcrumbItems
-    };
+          return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbItems
+      };
+    } catch (error) {
+      console.warn('Error generating breadcrumb data:', error);
+      return null;
+    }
   };
 
   return (
@@ -169,11 +176,14 @@ const SEO = ({
       </script>
       
       {/* Breadcrumb Structured Data */}
-      {generateBreadcrumbData() && (
-        <script type="application/ld+json">
-          {JSON.stringify(generateBreadcrumbData())}
-        </script>
-      )}
+      {(() => {
+        const breadcrumbData = generateBreadcrumbData();
+        return breadcrumbData ? (
+          <script type="application/ld+json">
+            {JSON.stringify(breadcrumbData)}
+          </script>
+        ) : null;
+      })()}
       
       {/* Additional SEO Meta Tags */}
       <meta name="author" content="Grahmind" />

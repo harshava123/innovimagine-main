@@ -8,19 +8,21 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const UIDesign = () => (
+const UIDesign = ({ isSubComponent = false }) => (
   <>
-    <SEO 
-      title="UI/UX Design Services | Grahmind"
-      description="Grahmind creates exceptional user experiences through professional UI/UX design. User-centered design that drives engagement and conversions."
-      keywords="Grahmind, UI design, UX design, user experience design, interface design, user-centered design, design thinking, digital design, Figma, Adobe XD, Sketch"
-      canonical="https://grahmind.com/services/ui-ux-design"
-      pageType="service"
-      serviceName="UI/UX Design"
-      serviceDescription="Professional UI/UX design services creating exceptional user experiences. User-centered design that drives engagement and conversions."
-      serviceCategory="Design Services"
-      serviceArea="Worldwide"
-    />
+    {!isSubComponent && (
+      <SEO 
+        title="UI/UX Design Services | Grahmind"
+        description="Grahmind creates exceptional user experiences through professional UI/UX design. User-centered design that drives engagement and conversions."
+        keywords="Grahmind, UI design, UX design, user experience design, interface design, user-centered design, design thinking, digital design, Figma, Adobe XD, Sketch"
+        canonical="https://grahmind.com/services/ui-ux-design"
+        pageType="service"
+        serviceName="UI/UX Design"
+        serviceDescription="Professional UI/UX design services creating exceptional user experiences. User-centered design that drives engagement and conversions."
+        serviceCategory="Design Services"
+        serviceArea="Worldwide"
+      />
+    )}
     <motion.section
       className="bg-white min-h-screen pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-16"
       initial={{ opacity: 0 }}

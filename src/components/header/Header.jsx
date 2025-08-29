@@ -13,6 +13,8 @@ function Header() {
     { path: "/contact", label: "Contact" },
   ];
 
+
+
   const handleGetStartedClick = () => {
     setIsLoading(true);
     // Simulate loading for better UX
@@ -28,9 +30,18 @@ function Header() {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-sans text-gray-900 tracking-tight"
+            className="flex items-center"
           >
-            Grahmind
+            <img 
+              src="/grah.png?v=2" 
+              alt="Grahmind Innovations" 
+              className="h-32 w-auto"
+              style={{ 
+                backgroundColor: 'transparent',
+                filter: 'brightness(1.1) contrast(1.1)',
+                mixBlendMode: 'multiply'
+              }}
+            />
           </Link>
 
           {/* Centered Navigation + Get Started Button */}
@@ -40,6 +51,7 @@ function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
+       
                   className={`text-base font-sans transition-colors duration-200 px-2 py-1 border-b-2 border-transparent hover:border-gray-900 hover:text-gray-900 ${
                     location.pathname === item.path
                       ? "border-gray-900 text-gray-900"

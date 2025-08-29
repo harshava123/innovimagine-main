@@ -34,7 +34,7 @@ const Footer = () => {
             <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">Transforming digital landscapes with innovative technology solutions and cutting-edge design.</p>
             <div className="flex space-x-4 text-2xl text-gray-700">
               <a
-                href="https://www.linkedin.com/in/innov-imagine-582915350/"
+                href="https://www.linkedin.com/company/grahmind/"
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
