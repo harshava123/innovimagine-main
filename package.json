@@ -22,8 +22,7 @@
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.6.2",
-    "styled-components": "^6.1.19",
-    "web-vitals": "^5.1.0"
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -39,6 +38,7 @@
     "rollup-plugin-visualizer": "^6.0.3",
     "sharp-cli": "^5.2.0",
     "tailwindcss": "^3.4.17",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-pwa": "^1.0.1"
   }
 }
