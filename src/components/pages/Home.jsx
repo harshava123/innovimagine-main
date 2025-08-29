@@ -1,20 +1,26 @@
 import React from 'react'
+import Main from '../comp/Main'
+import Byd from '../comp/Byd'
+import Features from '../comp/Features'
+import ServicesSection from '../comp/ServicesSection'
+import Process from '../comp/Process'
+import Pricing from '../comp/Pricing'
+import Testimonials from '../comp/Testimonials'
+import Faq from '../comp/Faq'
 
-const Home = () => (
-  <div style={{ 
-    color: 'white', 
-    backgroundColor: 'black', 
-    padding: '20px', 
-    fontSize: '24px',
-    textAlign: 'center',
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }}>
-    <h1>Grahmind - Test Page</h1>
-    <p>If you can see this, the React app is working!</p>
-  </div>
-)
+const Home = () => {
+  return (
+    <>
+      <Main />
+      <Byd />
+      <Features />
+      <ServicesSection />
+      <Process />
+      <Pricing />
+      <Testimonials />
+      <Faq />
+    </>
+  )
+}
 
 export default Home
