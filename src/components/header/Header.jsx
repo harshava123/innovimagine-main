@@ -35,13 +35,11 @@ function Header() {
             <img 
               src="/grah.png?v=2" 
               alt="Grahmind Innovations" 
-              className="h-8 w-auto sm:h-12 md:h-16 lg:h-20 xl:h-24 2xl:h-28 transition-all duration-300 ease-in-out"
+              className="h-32 w-auto"
               style={{ 
                 backgroundColor: 'transparent',
                 filter: 'brightness(1.1) contrast(1.1)',
-                mixBlendMode: 'multiply',
-                maxHeight: '100%',
-                objectFit: 'contain'
+                mixBlendMode: 'multiply'
               }}
             />
           </Link>
