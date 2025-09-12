@@ -302,10 +302,10 @@ const Footer = () => {
                   <HiOutlineMail className="text-lg" />
                 </span>
                 <a 
-                  href="mailto:grahmindinnovations@gmail.com" 
+                  href="mailto:info@grahmind.com" 
                   className="relative inline-block group transition-all duration-300 hover:text-black hover:font-medium"
                 >
-                  grahmindinnovations@gmail.com
+                  info@grahmind.com
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
