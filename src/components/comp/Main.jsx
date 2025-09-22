@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import grahmindImage from '../../assets/grahmind.png';
+import mobileHeroImage from '../../assets/ui.png';
 
 const Main = () => {
   const [scrollDirection, setScrollDirection] = useState('down');
@@ -47,11 +48,23 @@ const Main = () => {
     <div className="relative w-screen h-screen bg-black flex items-center justify-center overflow-hidden m-0 p-0">
       {/* Logo container - Full screen */}
       <div className="relative w-screen h-screen z-10 m-0 p-0">
-        {/* Grahmind logo - Full screen coverage */}
+        {/* Mobile hero image */}
+        <img
+          src={mobileHeroImage}
+          alt="Grahmind Innovations - Mobile Hero"
+          className="block md:hidden w-screen h-screen object-cover m-0 p-0"
+          style={{
+            filter: 'brightness(1.1) contrast(1.1) saturate(1.2)',
+            objectPosition: 'center center',
+            minWidth: '100vw',
+            minHeight: '100vh'
+          }}
+        />
+        {/* Desktop/Tablet hero image */}
         <img 
           src={grahmindImage} 
-          alt="GRAHMIND - The Ultimate Tech Solutions" 
-          className="w-screen h-screen object-cover m-0 p-0"
+          alt="Grahmind Innovations - Desktop Hero" 
+          className="hidden md:block w-screen h-screen object-cover m-0 p-0"
           style={{
             filter: 'brightness(1.1) contrast(1.1) saturate(1.2)',
             objectPosition: 'center center',
