@@ -2,14 +2,23 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { visualizer } from 'rollup-plugin-visualizer'
+import glsl from 'vite-plugin-glsl'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+
+    // ✅ ADD THIS
+    glsl(),
+
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      includeAssets: [
+        'favicon.svg',
+        'favicon.ico',
+        'robots.txt',
+        'apple-touch-icon.png'
+      ],
       manifest: {
         name: 'Grahmind',
         short_name: 'Grahmind',
@@ -32,9 +41,10 @@ export default defineConfig({
         ]
       },
       workbox: {
-        maximumFileSizeToCacheInBytes: 5000000 // 5MB
+        maximumFileSizeToCacheInBytes: 5000000
       }
     }),
+
     visualizer({ open: false })
   ],
 })
