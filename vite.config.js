@@ -14,10 +14,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: [
-        'favicon.svg',
-        'favicon.ico',
-        'robots.txt',
-        'apple-touch-icon.png'
+        'grah.png',
+        'robots.txt'
       ],
       manifest: {
         name: 'Grahmind',
@@ -29,12 +27,12 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: 'grah.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
+            src: 'grah.png',
             sizes: '512x512',
             type: 'image/png'
           }

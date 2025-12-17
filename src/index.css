@@ -339,4 +339,30 @@ html {
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* (Custom cursor styles removed) */
+/* Transparent custom cursor */
+body {
+  cursor: none;
+}
+
+a, button, [role="button"] {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+  z-index: 9999;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+.custom-cursor.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  border-color: #000000;
+}

@@ -190,13 +190,15 @@ const SEO = ({
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
       
-      {/* Service-specific meta tags */}
+      {/* Service-specific meta tags (avoid React.Fragment inside Helmet) */}
       {serviceName && (
-        <>
-          <meta name="service:name" content={serviceName} />
-          <meta name="service:category" content={serviceCategory} />
-          {serviceArea && <meta name="service:area" content={serviceArea} />}
-        </>
+        <meta name="service:name" content={serviceName} />
+      )}
+      {serviceName && serviceCategory && (
+        <meta name="service:category" content={serviceCategory} />
+      )}
+      {serviceName && serviceArea && (
+        <meta name="service:area" content={serviceArea} />
       )}
       
       {/* Brand Authority Signals */}

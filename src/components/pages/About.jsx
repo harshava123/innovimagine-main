@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import teamPhoto from '../../assets/group.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,6 +29,28 @@ const About = () => {
         >
           We're a passionate team of four B.Tech friends turned entrepreneurs, building innovative software solutions with ethics at our core.
         </motion.p>
+
+        {/* Team Photo */}
+        <motion.div
+          className="flex flex-col items-center mb-10"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.15 }}
+        >
+          <div className="relative w-full max-w-2xl">
+            <img
+              src={teamPhoto}
+              alt="Grahmind Founding Team"
+              className="rounded-2xl shadow-neumorphic w-full h-auto"
+              style={{ display: 'block' }}
+            />
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+          </div>
+          <p className="text-gray-500 text-sm mt-4 italic">
+            The founding team — Four friends, one vision
+          </p>
+        </motion.div>
 
         {/* Our Story */}
         <motion.div
