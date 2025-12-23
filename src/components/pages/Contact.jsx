@@ -46,11 +46,18 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Reset all states before submission
     setError(null);
     setSent(false);
+    setSending(false);
+    
+    // Validate form
     const errors = validate();
     setFieldErrors(errors);
-    if (Object.keys(errors).length > 0) return;
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
     
     setSending(true);
     
@@ -58,6 +65,8 @@ function Contact() {
       // Use localhost:3001 for local dev, or relative path for Vercel production
       const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
       const endpoint = import.meta.env.VITE_API_URL || (isLocalDev ? 'http://localhost:3001/api/contact' : '/api/contact');
+      
+      console.log('Sending request to:', endpoint);
       
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -67,16 +76,58 @@ function Contact() {
         body: JSON.stringify(formData),
       });
 
-      // Handle non-JSON responses (like 404)
+      console.log('Response status:', response.status, response.statusText);
+
+      // Handle non-OK responses (like 404, 500, etc.)
       if (!response.ok) {
-        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+        let errorMessage = `Server error: ${response.status} ${response.statusText}`;
+        
+        try {
+          const contentType = response.headers.get('content-type');
+          if (contentType && contentType.includes('application/json')) {
+            const errorData = await response.json();
+            errorMessage = errorData.error || errorData.message || errorMessage;
+            console.error('API Error Data:', errorData);
+          } else {
+            const errorText = await response.text();
+            console.error('API Error Response (non-JSON):', errorText);
+            if (response.status === 404) {
+              errorMessage = 'API endpoint not found. Please check server configuration.';
+            }
+          }
+        } catch (parseError) {
+          console.error('Failed to parse error response:', parseError);
+          if (response.status === 404) {
+            errorMessage = 'API endpoint not found. The server may not be configured correctly.';
+          }
+        }
+        
+        setSending(false);
+        setError(errorMessage);
+        return; // Exit early on error
       }
 
-      const data = await response.json();
+      // Parse JSON response for successful requests
+      let data;
+      try {
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Server returned non-JSON response');
+        }
+        data = await response.json();
+        console.log('Response data:', data);
+      } catch (jsonError) {
+        console.error('Failed to parse JSON response:', jsonError);
+        setSending(false);
+        setError('Invalid response from server. Please try again.');
+        return; // Exit early on parse error
+      }
 
-      if (data.success) {
+      // Only show success if we have valid data with success: true
+      if (data && data.success === true) {
         setSent(true);
         setSending(false);
+        setError(null); // Clear any previous errors
         setFormData({
           fullName: '',
           email: '',
@@ -85,20 +136,31 @@ function Contact() {
           subject: '',
           message: ''
         });
+        console.log('✅ Email sent successfully:', data.messageId);
       } else {
-        setError(data.error || 'Failed to send. Please try again.');
+        // Server returned success: false or no success field
+        const errorMsg = data?.error || data?.message || 'Failed to send email. Please try again.';
         setSending(false);
+        setError(errorMsg);
+        console.error('❌ Email send failed:', data);
       }
     } catch (err) {
+      // Network errors, fetch failures, etc.
       console.error('Contact form error:', err);
-      // Better error message for production
-      const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
-      if (isProduction) {
-        setError('Unable to send message. Please contact us directly at grahmindinnovations@gmail.com or call +919000278794');
-      } else {
-        setError('Network error. Please check if the server is running on port 3001 and try again.');
-      }
       setSending(false);
+      setSent(false); // Ensure success is false on error
+      
+      // Provide helpful error messages
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+        if (isProduction) {
+          setError('Unable to connect to server. Please contact us directly at grahmindinnovations@gmail.com or call +919000278794');
+        } else {
+          setError('Network error. Please check if the server is running on port 3001 and try again.');
+        }
+      } else {
+        setError(err.message || 'An unexpected error occurred. Please try again.');
+      }
     }
   };
 
@@ -347,8 +409,34 @@ function Contact() {
                 </div>
                 )}
               </motion.button>
-              {sent && <p className="text-green-600 mt-2">Message sent successfully!</p>}
-              {error && <p className="text-red-600 mt-2">{error}</p>}
+              {sent && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg"
+                >
+                  <p className="text-green-700 font-medium flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Message sent successfully! We'll get back to you soon.
+                  </p>
+                </motion.div>
+              )}
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg"
+                >
+                  <p className="text-red-700 font-medium flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                    {error}
+                  </p>
+                </motion.div>
+              )}
             </form>
           </motion.div>
         </div>
