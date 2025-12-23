@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Mail, Phone, User, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
-import emailjs from 'emailjs-com';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -45,35 +44,47 @@ function Contact() {
     setFieldErrors(prev => ({ ...prev, [name]: undefined }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
     setSent(false);
     const errors = validate();
     setFieldErrors(errors);
     if (Object.keys(errors).length > 0) return;
+    
     setSending(true);
-    emailjs.sendForm(
-      'service_vfws8rr',
-      'template_z8wwy0w',
-      formRef.current,
-      '7l18AEEBovnNx3Rnh'
-    )
-    .then(() => {
-      setSent(true);
-      setSending(false);
-      setFormData({
-        fullName: '',
-        email: '',
-        number: '',
-        country: '',
-        subject: '',
-        message: ''
+    
+    try {
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, () => {
-      setError('Failed to send. Please try again.');
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSent(true);
+        setSending(false);
+        setFormData({
+          fullName: '',
+          email: '',
+          number: '',
+          country: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setError(data.error || 'Failed to send. Please try again.');
+        setSending(false);
+      }
+    } catch (err) {
+      console.error('Contact form error:', err);
+      setError('Network error. Please check if the server is running and try again.');
       setSending(false);
-    });
+    }
   };
 
   // Animation variants
