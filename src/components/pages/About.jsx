@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import teamPhoto from '../../assets/group.png';
@@ -9,6 +9,8 @@ const fadeUp = {
 };
 
 const About = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-100 pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-1 sm:px-2 md:px-0">
       <div className="max-w-4xl mx-auto px-2 sm:px-6">
@@ -35,14 +37,25 @@ const About = () => {
           className="flex flex-col items-center mb-10"
           variants={fadeUp}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ delay: 0.15 }}
         >
           <div className="relative w-full max-w-2xl">
+            {/* Placeholder while loading */}
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-gray-200 rounded-2xl animate-pulse" />
+            )}
             <img
               src={teamPhoto}
               alt="Grahmind Founding Team"
-              className="rounded-2xl shadow-neumorphic w-full h-auto"
+              className={`rounded-2xl shadow-neumorphic w-full h-auto transition-opacity duration-300 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              loading="lazy"
+              decoding="async"
+              fetchPriority="high"
+              onLoad={() => setImageLoaded(true)}
               style={{ display: 'block' }}
             />
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />

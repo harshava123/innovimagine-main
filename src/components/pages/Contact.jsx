@@ -55,9 +55,11 @@ function Contact() {
     setSending(true);
     
     try {
-      // Use environment variable for API URL, fallback to localhost for development
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-      const response = await fetch(`${API_URL}/api/contact`, {
+      // Use localhost:3001 for local dev, or relative path for Vercel production
+      const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const endpoint = import.meta.env.VITE_API_URL || (isLocalDev ? 'http://localhost:3001/api/contact' : '/api/contact');
+      
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

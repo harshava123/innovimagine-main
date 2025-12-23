@@ -1,18 +1,4 @@
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-// Create transporter
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD, // App password
-    },
-  });
-};
 
 // Contact form email template
 const createContactEmailTemplate = (data) => {
@@ -145,25 +131,101 @@ const createContactEmailTemplate = (data) => {
   `;
 };
 
-// Send contact form email
-export const sendContactEmail = async (data) => {
-  try {
-    const transporter = createTransporter();
+export default async function handler(req, res) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ 
+      success: false, 
+      error: 'Method not allowed' 
+    });
+  }
 
+  // CORS headers for Vercel
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  try {
+    const { fullName, email, number, country, subject, message } = req.body;
+
+    // Validate required fields
+    if (!fullName || !email || !number || !subject) {
+      return res.status(400).json({
+        success: false,
+        error: 'Missing required fields: fullName, email, number, and subject are required',
+      });
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid email format',
+      });
+    }
+
+    // Validate phone number (10 digits)
+    if (!/^\d{10}$/.test(number)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Phone number must be 10 digits',
+      });
+    }
+
+    // Check for environment variables
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.error('Missing Gmail credentials in environment variables');
+      return res.status(500).json({
+        success: false,
+        error: 'Server configuration error. Please contact support.',
+      });
+    }
+
+    // Create transporter
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    // Send email
     const mailOptions = {
       from: process.env.GMAIL_USER,
       to: process.env.GMAIL_USER, // Send to your own email
-      replyTo: data.email, // Allow replying directly to customer
-      subject: `New Contact Form: ${data.subject} - ${data.fullName}`,
-      html: createContactEmailTemplate(data),
+      replyTo: email, // Allow replying directly to customer
+      subject: `New Contact Form: ${subject} - ${fullName}`,
+      html: createContactEmailTemplate({
+        fullName,
+        email,
+        number,
+        country: country || '',
+        subject,
+        message: message || '',
+      }),
     };
 
     const info = await transporter.sendMail(mailOptions);
     console.log('Contact email sent successfully:', info.messageId);
-    return { success: true, messageId: info.messageId };
+
+    return res.status(200).json({
+      success: true,
+      message: 'Email sent successfully',
+      messageId: info.messageId,
+    });
   } catch (error) {
     console.error('Error sending contact email:', error);
-    return { success: false, error: error.message };
+    return res.status(500).json({
+      success: false,
+      error: error.message || 'Failed to send email',
+    });
   }
-};
+}
 

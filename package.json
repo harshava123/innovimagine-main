@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "server": "node server/server.js",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "dev": "concurrently \"vite\" \"node server-local.js\"",
+    "dev:server": "node server-local.js",
+    "dev:frontend": "vite",
+    "dev:vercel": "vercel dev",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
