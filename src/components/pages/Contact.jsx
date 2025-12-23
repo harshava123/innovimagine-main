@@ -55,13 +55,20 @@ function Contact() {
     setSending(true);
     
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
+      // Use environment variable for API URL, fallback to localhost for development
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
+
+      // Handle non-JSON responses (like 404)
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
 
       const data = await response.json();
 
@@ -82,7 +89,13 @@ function Contact() {
       }
     } catch (err) {
       console.error('Contact form error:', err);
-      setError('Network error. Please check if the server is running and try again.');
+      // Better error message for production
+      const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+      if (isProduction) {
+        setError('Unable to send message. Please contact us directly at grahmindinnovations@gmail.com or call +919000278794');
+      } else {
+        setError('Network error. Please check if the server is running on port 3001 and try again.');
+      }
       setSending(false);
     }
   };
