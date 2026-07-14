@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Mail, Phone, User, Rocket } from 'lucide-react';
+import { Mail, Phone, User, Rocket, MapPin, Clock, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function Contact() {
@@ -15,7 +15,6 @@ function Contact() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
   const [fieldErrors, setFieldErrors] = useState({});
-  const [buttonHover, setButtonHover] = useState(false);
   const formRef = useRef();
 
   const validate = () => {
@@ -170,9 +169,42 @@ function Contact() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } }
   };
 
+  const branches = [
+    {
+      name: 'Berlin',
+      country: 'Germany',
+      image: '/images/berlin-map.png',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Berlin,Germany',
+    },
+    {
+      name: 'Hyderabad',
+      country: 'India',
+      image: '/images/hyderabad-map.png',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hyderabad,India',
+    },
+  ];
+
+  const socialLinks = [
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/company/grahmind/',
+      handle: 'Grahmind',
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/accounts/login/?next=%grahmind%2F&source=omni_redirect',
+      handle: '@grahmind',
+    },
+    {
+      name: 'Facebook',
+      url: 'https://www.facebook.com/profile.php?id=61572732074218',
+      handle: 'Grahmind',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50 py-8 sm:py-12 px-2 sm:px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header with neumorphic design */}
         <motion.div
           className="flex flex-col items-center mt-12 mb-12"
@@ -208,81 +240,177 @@ function Contact() {
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 items-stretch">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 items-start">
           {/* Contact Info Cards */}
           <motion.div
-            className="flex flex-col h-full space-y-6"
+            className="flex flex-col gap-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
-            {/* Email Card */}
-            <motion.div
-              className="bg-gray-50 rounded-2xl p-4 sm:p-8 shadow-neumorphic h-full flex flex-col justify-between group"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={fadeUp}
-            >
-              <div>
-                <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-2xl mb-6 shadow-neumorphic-inset">
-                  <Mail className="w-8 h-8 text-gray-600 transition-all duration-300 group-hover:text-red-500 group-hover:scale-125 group-hover:rotate-6" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-1">Email Us Anytime</h4>
-                <div className="inline-block bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full mb-2">24/7 Support</div>
-                <p className="text-gray-600 mb-2 text-sm">
-                  Our team replies within 24 hours. For project inquiries, partnerships, or support, drop us a message!
-                </p>
-                <ul className="list-disc list-inside text-gray-500 text-xs mb-4">
-                  <li>Project Inquiries</li>
-                  <li>Partnership Opportunities</li>
-                  <li>Customer Support</li>
-                </ul>
-              </div>
-              <a 
-                href="mailto:grahmindinnovations@gmail.com" 
-                className="text-black font-medium hover:underline"
+            {/* Email + Contact Us - compact, no stretch */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Email Card */}
+              <motion.div
+                className="bg-gray-50 rounded-2xl p-4 sm:p-5 shadow-neumorphic flex flex-col gap-3 group"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
               >
-               grahmindinnovations@gmail.com
-              </a>
-            </motion.div>
+                <div className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-xl shadow-neumorphic-inset">
+                  <Mail className="w-5 h-5 text-gray-600 transition-all duration-300 group-hover:text-red-500 group-hover:scale-110" />
+                </div>
+                <h4 className="text-sm font-semibold text-gray-800">Email Us</h4>
+                <div className="inline-block bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full w-fit">24/7</div>
+                <p className="text-gray-600 text-xs">
+                  Drop us a message for inquiries, partnerships, or support.
+                </p>
+                <a
+                  href="mailto:grahmindinnovations@gmail.com"
+                  className="text-black text-xs font-medium hover:underline break-all"
+                >
+                  grahmindinnovations@gmail.com
+                </a>
+              </motion.div>
 
-            {/* Phone Card */}
-            <motion.div
-              className="bg-gray-50 rounded-2xl p-4 sm:p-8 shadow-neumorphic h-full flex flex-col justify-between group"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={fadeUp}
-            >
-              <div>
-                <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-2xl mb-6 shadow-neumorphic-inset">
-                  <Phone className="w-8 h-8 text-gray-600 transition-all duration-300 group-hover:text-green-500 group-hover:scale-125 group-hover:rotate-6" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-1">Call Us Directly</h4>
-                <div className="inline-block bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full mb-2">Available 9am–7pm IST</div>
-                <p className="text-gray-600 mb-2 text-sm">
-                  Call us for instant support, demo scheduling, or a quick consultation. We're happy to help!
-                </p>
-                <ul className="list-disc list-inside text-gray-500 text-xs mb-4">
-                  <li>Urgent Queries</li>
-                  <li>Demo Scheduling</li>
-                  <li>Consultation</li>
-                </ul>
-              </div>
-              <a
-                href="tel:+919000278794"
-                className="text-black font-medium hover:underline text-left"
+              {/* Contact Us Card */}
+              <motion.div
+                className="bg-gray-50 rounded-2xl p-4 sm:p-5 shadow-neumorphic flex flex-col gap-3 group"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
               >
-                Book a call
-              </a>
-            </motion.div>
+                <div className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-xl shadow-neumorphic-inset">
+                  <Phone className="w-5 h-5 text-gray-600 transition-all duration-300 group-hover:text-green-500 group-hover:scale-110" />
+                </div>
+                <h4 className="text-sm font-semibold text-gray-800">Contact Us</h4>
+                <div className="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full w-fit">9am–7pm IST</div>
+                <p className="text-gray-600 text-xs">
+                  Call us for support, demo scheduling, or consultations.
+                </p>
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="tel:+919000278794"
+                    className="text-black text-xs font-medium hover:underline"
+                  >
+                    +91 9000278794
+                  </a>
+                  <a
+                    href="tel:+4915511049565"
+                    className="text-black text-xs font-medium hover:underline"
+                  >
+                    +49 15511049565
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Branch map cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {branches.map((branch) => (
+                <motion.a
+                  key={branch.name}
+                  href={branch.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-50 rounded-2xl p-3 sm:p-4 shadow-neumorphic flex flex-col group overflow-hidden transition-all duration-300 hover:shadow-lg"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={fadeUp}
+                >
+                  <div className="relative rounded-xl overflow-hidden aspect-[4/3] mb-3">
+                    <img
+                      src={branch.image}
+                      alt={`${branch.name}, ${branch.country} map`}
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                  </div>
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <MapPin className="w-4 h-4 text-purple-500 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-800">{branch.name}</h4>
+                      <p className="text-xs text-gray-500">{branch.country}</p>
+                    </div>
+                  </div>
+                  <span className="text-xs text-purple-600 font-medium mt-2 flex-shrink-0 group-hover:underline">
+                    View on map →
+                  </span>
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Business Hours + Connect With Us */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Business Hours */}
+              <motion.div
+                className="bg-gray-50 rounded-2xl p-4 sm:p-5 shadow-neumorphic flex flex-col gap-3 group"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
+              >
+                <div className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-xl shadow-neumorphic-inset">
+                  <Clock className="w-5 h-5 text-gray-600 transition-all duration-300 group-hover:text-amber-500 group-hover:scale-110" />
+                </div>
+                <h4 className="text-sm font-semibold text-gray-800">Business Hours</h4>
+                <div className="inline-block bg-amber-100 text-amber-700 text-xs px-2 py-0.5 rounded-full w-fit">Mon – Fri</div>
+                <p className="text-gray-600 text-xs">
+                  Our teams are available across Berlin and Hyderabad time zones.
+                </p>
+                <div className="flex flex-col gap-1.5 text-xs">
+                  <div className="flex justify-between text-gray-700">
+                    <span className="font-medium">Berlin (CET)</span>
+                    <span>9:00 AM – 6:00 PM</span>
+                  </div>
+                  <div className="flex justify-between text-gray-700">
+                    <span className="font-medium">Hyderabad (IST)</span>
+                    <span>9:00 AM – 7:00 PM</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Connect With Us */}
+              <motion.div
+                className="bg-gray-50 rounded-2xl p-4 sm:p-5 shadow-neumorphic flex flex-col gap-3 group"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
+              >
+                <div className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-xl shadow-neumorphic-inset">
+                  <Linkedin className="w-5 h-5 text-gray-600 transition-all duration-300 group-hover:text-blue-600 group-hover:scale-110" />
+                </div>
+                <h4 className="text-sm font-semibold text-gray-800">Connect With Us</h4>
+                <div className="inline-block bg-indigo-100 text-indigo-700 text-xs px-2 py-0.5 rounded-full w-fit">Social Media</div>
+                <p className="text-gray-600 text-xs">
+                  Follow us for updates, insights, and behind-the-scenes from our team.
+                </p>
+                <div className="flex flex-col gap-1.5">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black text-xs font-medium hover:underline flex justify-between"
+                    >
+                      <span>{link.name}</span>
+                      <span className="text-gray-500">{link.handle}</span>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Contact Form with neumorphic design and full height */}
           <motion.div
-            className="bg-gray-50 rounded-2xl p-4 sm:p-8 shadow-neumorphic h-full flex flex-col justify-center"
+            className="bg-gray-50 rounded-2xl p-4 sm:p-8 shadow-neumorphic h-full flex flex-col"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -394,8 +522,6 @@ function Contact() {
                 }`}
                 whileHover={!sending ? { scale: 1.02, y: -2 } : {}}
                 whileTap={!sending ? { scale: 0.98 } : {}}
-                onMouseEnter={() => setButtonHover(true)}
-                onMouseLeave={() => setButtonHover(false)}
               >
                 {sending ? (
                   <div className="flex items-center justify-center gap-3">

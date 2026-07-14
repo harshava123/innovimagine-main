@@ -291,11 +291,30 @@ const Footer = () => {
           <div>
             <h3 className="text-base sm:text-lg font-semibold font-sans mb-2 sm:mb-4">Contact Info</h3>
             <ul className="space-y-3 sm:space-y-4 text-gray-800">
-              <li className="flex items-center gap-3">
+              <li className="flex items-start gap-3">
                 <span aria-label="Location" title="Location">
-                  <HiOutlineLocationMarker className="text-lg" />
+                  <HiOutlineLocationMarker className="text-lg mt-0.5" />
                 </span>
-                <span>Hyderabad, India</span>
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Berlin,Germany"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative inline-block group transition-all duration-300 hover:text-black hover:font-medium"
+                  >
+                    Berlin, Germany
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Hyderabad,India"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative inline-block group transition-all duration-300 hover:text-black hover:font-medium"
+                  >
+                    Hyderabad, India
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <span aria-label="Email" title="Email">
@@ -309,17 +328,26 @@ const Footer = () => {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-start gap-3">
                 <span aria-label="Phone" title="Phone">
-                  <HiOutlinePhone className="text-lg" />
+                  <HiOutlinePhone className="text-lg mt-0.5" />
                 </span>
-                <a 
-                  href="tel:+917569460743" 
-                  className="relative inline-block group transition-all duration-300 hover:text-black hover:font-medium"
-                >
-                  +91 7569460743
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a 
+                    href="tel:+919000278794" 
+                    className="relative inline-block group transition-all duration-300 hover:text-black hover:font-medium"
+                  >
+                    +91 9000278794
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                  <a 
+                    href="tel:+4915511049565" 
+                    className="relative inline-block group transition-all duration-300 hover:text-black hover:font-medium"
+                  >
+                    +49 15511049565
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
