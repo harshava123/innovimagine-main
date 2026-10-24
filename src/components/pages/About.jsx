@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import teamPhoto from '../../assets/group.png';
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -29,7 +29,7 @@ const About = () => {
           animate="visible"
           transition={{ delay: 0.1 }}
         >
-          We're a passionate team of four B.Tech friends turned entrepreneurs, building innovative software solutions with ethics at our core.
+          We're a passionate team of Three B.Tech friends turned entrepreneurs, building innovative software solutions with ethics at our core.
         </motion.p>
 
         {/* Team Photo */}
@@ -46,7 +46,7 @@ const About = () => {
             {!imageLoaded && (
               <div className="absolute inset-0 bg-gray-200 rounded-2xl animate-pulse" />
             )}
-            <img
+            {/* <img
               src={teamPhoto}
               alt="Grahmind Founding Team"
               className={`rounded-2xl shadow-neumorphic w-full h-auto transition-opacity duration-300 ${
@@ -57,11 +57,11 @@ const About = () => {
               fetchPriority="high"
               onLoad={() => setImageLoaded(true)}
               style={{ display: 'block' }}
-            />
+            /> */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
           </div>
           <p className="text-gray-500 text-sm mt-4 italic">
-            The founding team — Four friends, one vision
+            The founding team — Three friends, one vision
           </p>
         </motion.div>
 
@@ -76,7 +76,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold mb-4 text-gray-900">Our Story</h2>
           <div className="text-gray-700 space-y-4">
             <p>
-              What started as four friends sharing dreams during our B.Tech days has evolved into something extraordinary. We bonded over late-night coding sessions, endless discussions about technology's potential, and a shared vision of creating software that makes a real difference.
+              What started as Three friends sharing dreams during our B.Tech days has evolved into something extraordinary. We bonded over late-night coding sessions, endless discussions about technology's potential, and a shared vision of creating software that makes a real difference.
             </p>
             <p>
               After graduating, instead of taking the conventional path, we decided to chase our dreams together. We founded Grahmind with a simple yet powerful mission: to deliver exceptional software solutions while maintaining the highest ethical standards.
@@ -155,7 +155,7 @@ const About = () => {
               We promise to deliver solutions that not only meet your technical requirements but also align with your values and long-term goals. Every project we undertake is an opportunity to build something meaningful, something that makes a difference.
             </p>
             <p className="text-black">
-              From four friends with big dreams to a growing team of innovators, we're committed to turning your vision into reality while maintaining the highest standards of quality and ethics.
+              From Three friends with big dreams to a growing team of innovators, we're committed to turning your vision into reality while maintaining the highest standards of quality and ethics.
             </p>
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 sm:p-6 mt-4 sm:mt-6 border-l-4 border-blue-500">
               <blockquote className="text-lg font-medium italic text-gray-800 mb-2">
