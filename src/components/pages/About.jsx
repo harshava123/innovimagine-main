@@ -105,7 +105,7 @@ const About = () => {
               <li>Maintain the highest ethical standards in all our work</li>
               <li>Build technology that empowers businesses and individuals</li>
               <li>Create sustainable, scalable solutions for the future</li>
-              <li>Foster long-term partnerships based on trust and transparency</li>
+              <li>Foster long-term partnerships based on trust and transparency.</li>
             </ul>
         </div>
         </motion.div>
